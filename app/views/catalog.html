@@ -1,0 +1,41 @@
+<div class="row store-catalog">
+    <div ng-show="activesearch">
+        <div class="form-group row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <input type="text" class="form-control" id="search-filter" placeholder="Search by name" ng-model="searchfilter">
+            </div>
+        </div>
+    </div>
+    <div class="item-block col-md-4 col-lg-3 col-sm-6 col-xs-12" ng-repeat="product in items.products | filter:{'gender' : items.gender} :true | filter: {'name': searchfilter}">
+        <div class="carousel-item">
+            <div ng-hide="product.images" class="carousel-no-image"></div>
+            <div ng-show="product.images" class="carousel-thumbnail"><img ng-src="{{product.images[0].full}}"/></div>
+            <div class="carousel-description">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12"><span class="product-name">{{product.name}}</span></div>
+                        <div class="col-xs-6 add-padding"><span class="currency-sign">$</span><span class="price">{{product.price}}</span></div>
+                        <div class="col-xs-6 add-padding"><span class="btn btn-default">Add to Cart</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-id{{product.id}}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        Modal body ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

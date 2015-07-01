@@ -1,0 +1,26 @@
+<div class="owl-button-set row">
+    <div class="col-xs-1 prev">
+        <div class="owl_prev btn btn-default"><span class="glyphicon glyphicon-menu-left"></span></div>
+    </div>
+    <div class="col-xs-10 button-header">
+        <h3>Best Sellers</h3>
+    </div>
+    <div class="col-xs-1 next">
+        <div class="owl_next btn btn-default"><span class="glyphicon glyphicon-menu-right"></span></div>
+    </div>
+</div>
+<data-owl-carousel class="owl-carousel">
+    <div owl-carousel-item="" class="carousel-item" ng-repeat="product in items.products | orderBy: '-price'">
+        <div ng-hide="product.images" class="carousel-no-image"></div>
+        <div ng-show="product.images" class="carousel-thumbnail"><img ng-src="{{product.images[0].full}}"/></div>
+        <div class="carousel-description">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12"><span class="product-name">{{product.name}}</span></div>
+                    <div class="col-xs-6 add-padding"><span class="currency-sign">$</span><span class="price">{{product.price}}</span></div>
+                    <div class="col-xs-6 add-padding"><span class="btn btn-default">Add to Cart</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</data-owl-carousel>
